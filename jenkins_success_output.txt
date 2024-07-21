@@ -1,0 +1,684 @@
+Started by user Pablo Fuentes
+Obtained Jenkinsfile from git https://github.com/fpabl0/msoft_java_sec_demo.git
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /var/jenkins_home/workspace/demoCICD
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --resolve-git-dir /var/jenkins_home/workspace/demoCICD/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/fpabl0/msoft_java_sec_demo.git # timeout=10
+Fetching upstream changes from https://github.com/fpabl0/msoft_java_sec_demo.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.39.2'
+ > git fetch --tags --force --progress -- https://github.com/fpabl0/msoft_java_sec_demo.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision 929453cadc0465cc0530303fccff148c376f4b20 (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 929453cadc0465cc0530303fccff148c376f4b20 # timeout=10
+Commit message: "bump org.apache.logging.log4j/log4j-to-slf4j to 2.17.1"
+ > git rev-list --no-walk 929453cadc0465cc0530303fccff148c376f4b20 # timeout=10
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Tool Install)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Build)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] withMaven
+[withMaven] WARNING: You are running an old version of Maven (3.6.3), you should update to at least 3.8.x
+[Pipeline] {
+[Pipeline] sh
++ mvn package
+Picked up JAVA_TOOL_OPTIONS: -Dmaven.ext.class.path="/var/jenkins_home/workspace/demoCICD@tmp/withMaven62e6feef/pipeline-maven-spy.jar" -Dorg.jenkinsci.plugins.pipeline.maven.reportsFolder="/var/jenkins_home/workspace/demoCICD@tmp/withMaven62e6feef" 
+[INFO] [jenkins-event-spy] Generate /var/jenkins_home/workspace/demoCICD@tmp/withMaven62e6feef/maven-spy-20240721-033212-9944019048040653617364.log.tmp ...
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< nl.amis.smeetsm:spring-boot-demo >------------------
+[INFO] Building spring-boot-demo 0.0.1-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.6:prepare-agent (default) @ spring-boot-demo ---
+[INFO] argLine set to -javaagent:/var/jenkins_home/.m2/repository/org/jacoco/org.jacoco.agent/0.8.6/org.jacoco.agent-0.8.6-runtime.jar=destfile=/var/jenkins_home/workspace/demoCICD/target/jacoco.exec
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ spring-boot-demo ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ spring-boot-demo ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 4 source files to /var/jenkins_home/workspace/demoCICD/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ spring-boot-demo ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /var/jenkins_home/workspace/demoCICD/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ spring-boot-demo ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 2 source files to /var/jenkins_home/workspace/demoCICD/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.22.2:test (default-test) @ spring-boot-demo ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running nl.amis.smeetsm.demoservice.DemoserviceApplicationTests
+03:32:26.491 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+03:32:26.581 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+03:32:26.717 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [nl.amis.smeetsm.demoservice.DemoserviceApplicationTests] from class [org.springframework.boot.test.context.SpringBootTestContextBootstrapper]
+03:32:26.798 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [nl.amis.smeetsm.demoservice.DemoserviceApplicationTests], using SpringBootContextLoader
+03:32:26.819 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [nl.amis.smeetsm.demoservice.DemoserviceApplicationTests]: class path resource [nl/amis/smeetsm/demoservice/DemoserviceApplicationTests-context.xml] does not exist
+03:32:26.821 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [nl.amis.smeetsm.demoservice.DemoserviceApplicationTests]: class path resource [nl/amis/smeetsm/demoservice/DemoserviceApplicationTestsContext.groovy] does not exist
+03:32:26.823 [main] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [nl.amis.smeetsm.demoservice.DemoserviceApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+03:32:26.828 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [nl.amis.smeetsm.demoservice.DemoserviceApplicationTests]: DemoserviceApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+03:32:26.982 [main] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [nl.amis.smeetsm.demoservice.DemoserviceApplicationTests]
+03:32:27.259 [main] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [/var/jenkins_home/workspace/demoCICD/target/classes/nl/amis/smeetsm/demoservice/DemoserviceApplication.class]
+03:32:27.261 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration nl.amis.smeetsm.demoservice.DemoserviceApplication for test class nl.amis.smeetsm.demoservice.DemoserviceApplicationTests
+03:32:27.743 [main] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - @TestExecutionListeners is not present for class [nl.amis.smeetsm.demoservice.DemoserviceApplicationTests]: using defaults.
+03:32:27.745 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+03:32:28.437 [main] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Skipping candidate TestExecutionListener [org.springframework.test.context.transaction.TransactionalTestExecutionListener] due to a missing dependency. Specify custom listener classes or make the default listener classes and their required dependencies available. Offending class: [org/springframework/transaction/TransactionDefinition]
+03:32:28.450 [main] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Skipping candidate TestExecutionListener [org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener] due to a missing dependency. Specify custom listener classes or make the default listener classes and their required dependencies available. Offending class: [org/springframework/transaction/interceptor/TransactionAttribute]
+03:32:28.454 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@645d4639, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@8ee03f5, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@5ad40184, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@3359c3f6, org.springframework.test.context.support.DirtiesContextTestExecutionListener@3d3b272a, org.springframework.test.context.event.EventPublishingTestExecutionListener@45b27ad3, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@3f908bc0, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@422ba9b7, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@26cdd4af, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@707f4647, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@4b8a0d03, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@54f373d4]
+03:32:28.514 [main] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@621392ea testClass = DemoserviceApplicationTests, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@35524549 testClass = DemoserviceApplicationTests, locations = '{}', classes = '{class nl.amis.smeetsm.demoservice.DemoserviceApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@6d672bd4, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@1da1380b, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@996a546, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@298b64f7, org.springframework.boot.test.context.SpringBootTestArgs@1], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> true]], class annotated with @DirtiesContext [false] with mode [null].
+03:32:28.716 [main] DEBUG org.springframework.test.context.support.TestPropertySourceUtils - Adding inlined properties to environment: {spring.jmx.enabled=false, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.3.4.RELEASE)
+
+2024-07-21 03:32:30.018  INFO 6584 --- [           main] n.a.s.d.DemoserviceApplicationTests      : Starting DemoserviceApplicationTests on fd2a9fd3ce2b with PID 6584 (started by jenkins in /var/jenkins_home/workspace/demoCICD)
+2024-07-21 03:32:30.027  INFO 6584 --- [           main] n.a.s.d.DemoserviceApplicationTests      : No active profile set, falling back to default profiles: default
+2024-07-21 03:32:37.667  INFO 6584 --- [           main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2024-07-21 03:32:41.826  INFO 6584 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2024-07-21 03:32:41.963  INFO 6584 --- [           main] n.a.s.d.DemoserviceApplicationTests      : Started DemoserviceApplicationTests in 13.187 seconds (JVM running for 18.529)
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 17.598 s - in nl.amis.smeetsm.demoservice.DemoserviceApplicationTests
+2024-07-21 03:32:43.791  INFO 6584 --- [extShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.6:report (report) @ spring-boot-demo ---
+[INFO] Loading execution data file /var/jenkins_home/workspace/demoCICD/target/jacoco.exec
+[INFO] Analyzed bundle 'spring-boot-demo' with 2 classes
+[INFO] 
+[INFO] --- maven-jar-plugin:3.2.0:jar (default-jar) @ spring-boot-demo ---
+[INFO] Building jar: /var/jenkins_home/workspace/demoCICD/target/spring-boot-demo-0.0.1-SNAPSHOT.jar
+[INFO] 
+[INFO] --- spring-boot-maven-plugin:2.3.4.RELEASE:repackage (repackage) @ spring-boot-demo ---
+[INFO] Replacing main artifact with repackaged archive
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  34.513 s
+[INFO] Finished at: 2024-07-21T03:32:47Z
+[INFO] ------------------------------------------------------------------------
+[INFO] [jenkins-event-spy] Generated /var/jenkins_home/workspace/demoCICD@tmp/withMaven62e6feef/maven-spy-20240721-033212-9944019048040653617364.log
+[Pipeline] }
+[withMaven] artifactsPublisher - Archive artifact pom.xml under nl/amis/smeetsm/spring-boot-demo/0.0.1-SNAPSHOT/spring-boot-demo-0.0.1-SNAPSHOT.pom
+[withMaven] artifactsPublisher - Archive artifact target/spring-boot-demo-0.0.1-SNAPSHOT.jar under nl/amis/smeetsm/spring-boot-demo/0.0.1-SNAPSHOT/spring-boot-demo-0.0.1-SNAPSHOT.jar
+[withMaven] junitPublisher - Archive test results for Maven artifact nl.amis.smeetsm:spring-boot-demo:jar:0.0.1-SNAPSHOT generated by maven-surefire-plugin:test (default-test): target/surefire-reports/*.xml
+[withMaven] junitPublisher - Jenkins JUnit Attachments Plugin not found, can't publish test attachments.
+[withMaven] junitPublisher - Jenkins JUnit Flaky Test Handler Plugin not found, can't publish JUnit flaky tests reports.
+Recording test results
+[Checks API] No suitable checks publisher found.
+[withMaven] Jenkins FindBugs Plugin not found, don't display org.codehaus.mojo:findbugs-maven-plugin:findbugs results in pipeline screen.
+[withMaven] jgivenPublisher - Jenkins JGiven Plugin not found, do not archive jgiven reports.
+[withMaven] Jenkins JaCoCo Plugin not found, don't display org.jacoco:jacoco-maven-plugin:prepare-agent[-integration] results in pipeline screen.
+[withMaven] Jenkins Task Scanner Plugin not found, don't display results of source code scanning for 'TODO' and 'FIXME' in pipeline screen.
+[withMaven] Publishers: Pipeline Graph Publisher: 2 ms, Generated Artifacts Publisher: 135 ms, Junit Publisher: 18 ms
+[Pipeline] // withMaven
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (OWASP Dependency-Check Vulnerabilities)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] withMaven
+[withMaven] WARNING: You are running an old version of Maven (3.6.3), you should update to at least 3.8.x
+[Pipeline] {
+[Pipeline] sh
++ mvn dependency-check:check
+Picked up JAVA_TOOL_OPTIONS: -Dmaven.ext.class.path="/var/jenkins_home/workspace/demoCICD@tmp/withMavend120c0f3/pipeline-maven-spy.jar" -Dorg.jenkinsci.plugins.pipeline.maven.reportsFolder="/var/jenkins_home/workspace/demoCICD@tmp/withMavend120c0f3" 
+[INFO] [jenkins-event-spy] Generate /var/jenkins_home/workspace/demoCICD@tmp/withMavend120c0f3/maven-spy-20240721-033253-1213379239667147434028.log.tmp ...
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< nl.amis.smeetsm:spring-boot-demo >------------------
+[INFO] Building spring-boot-demo 0.0.1-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- dependency-check-maven:6.1.6:check (default-cli) @ spring-boot-demo ---
+[INFO] Checking for updates
+[INFO] Skipping NVD check since last check was within 4 hours.
+[INFO] Skipping RetireJS update since last update was within 24 hours.
+[INFO] Check for updates complete (628 ms)
+[INFO] 
+
+Dependency-Check is an open source tool performing a best effort analysis of 3rd party dependencies; false positives and false negatives may exist in the analysis performed by the tool. Use of the tool and the reporting provided constitutes acceptance for use in an AS IS condition, and there are NO warranties, implied or otherwise, with regard to the analysis or its use. Any use of the tool and the reporting provided is at the user’s risk. In no event shall the copyright holder or OWASP be held liable for any damages whatsoever arising out of or in connection with the use of this tool, the analysis performed, or the resulting report.
+
+
+   About ODC: https://jeremylong.github.io/DependencyCheck/general/internals.html
+   False Positives: https://jeremylong.github.io/DependencyCheck/general/suppression.html
+
+💖 Sponsor: https://github.com/sponsors/jeremylong
+
+
+[INFO] Analysis Started
+[INFO] Finished Archive Analyzer (2 seconds)
+[INFO] Finished File Name Analyzer (0 seconds)
+[INFO] Finished Jar Analyzer (1 seconds)
+[INFO] Finished Dependency Merging Analyzer (0 seconds)
+[INFO] Finished Version Filter Analyzer (0 seconds)
+[INFO] Finished Hint Analyzer (0 seconds)
+[INFO] Created CPE Index (5 seconds)
+[INFO] Finished CPE Analyzer (8 seconds)
+[INFO] Finished False Positive Analyzer (0 seconds)
+[INFO] Finished NVD CVE Analyzer (0 seconds)
+[INFO] Finished RetireJS Analyzer (13 seconds)
+[INFO] Finished Sonatype OSS Index Analyzer (0 seconds)
+[INFO] Finished Vulnerability Suppression Analyzer (0 seconds)
+[INFO] Finished Dependency Bundling Analyzer (0 seconds)
+[INFO] Analysis Complete (28 seconds)
+[INFO] Writing report to: /var/jenkins_home/workspace/demoCICD/target/dependency-check-report.xml
+[INFO] Writing report to: /var/jenkins_home/workspace/demoCICD/target/dependency-check-report.html
+[INFO] Writing report to: /var/jenkins_home/workspace/demoCICD/target/dependency-check-report.json
+[INFO] Writing report to: /var/jenkins_home/workspace/demoCICD/target/dependency-check-report.csv
+[INFO] Writing report to: /var/jenkins_home/workspace/demoCICD/target/dependency-check-report.sarif
+[INFO] Writing report to: /var/jenkins_home/workspace/demoCICD/target/dependency-check-junit.xml
+[WARNING] 
+
+One or more dependencies were identified with known vulnerabilities in spring-boot-demo:
+
+LatencyUtils-2.0.3.jar (pkg:maven/org.latencyutils/LatencyUtils@2.0.3, cpe:2.3:a:utils_project:utils:2.0.3:*:*:*:*:*:*:*) : CVE-2021-4277
+commons-io-2.6.jar (pkg:maven/commons-io/commons-io@2.6, cpe:2.3:a:apache:commons_io:2.6:*:*:*:*:*:*:*, cpe:2.3:a:apache:commons_net:2.6:*:*:*:*:*:*:*) : CVE-2021-29425, CVE-2021-37533
+gson-2.8.6.jar (pkg:maven/com.google.code.gson/gson@2.8.6, cpe:2.3:a:google:gson:2.8.6:*:*:*:*:*:*:*) : CVE-2022-25647
+jackson-core-2.11.2.jar (pkg:maven/com.fasterxml.jackson.core/jackson-core@2.11.2, cpe:2.3:a:fasterxml:jackson-modules-java8:2.11.2:*:*:*:*:*:*:*, cpe:2.3:a:json-java_project:json-java:2.11.2:*:*:*:*:*:*:*) : CVE-2022-45688, CVE-2023-5072
+jackson-databind-2.11.2.jar (pkg:maven/com.fasterxml.jackson.core/jackson-databind@2.11.2, cpe:2.3:a:fasterxml:jackson-databind:2.11.2:*:*:*:*:*:*:*, cpe:2.3:a:fasterxml:jackson-modules-java8:2.11.2:*:*:*:*:*:*:*) : CVE-2020-36518, CVE-2021-46877, CVE-2022-42003, CVE-2022-42004, CVE-2023-35116
+jakarta.el-3.0.3.jar (pkg:maven/org.glassfish/jakarta.el@3.0.3, cpe:2.3:a:eclipse:glassfish:3.0.3:*:*:*:*:*:*:*, cpe:2.3:a:eclipse:jakarta_expression_language:3.0.3:*:*:*:*:*:*:*) : CVE-2021-28170
+logback-core-1.2.3.jar (pkg:maven/ch.qos.logback/logback-core@1.2.3, cpe:2.3:a:qos:logback:1.2.3:*:*:*:*:*:*:*) : CVE-2021-42550, CVE-2023-6378
+snakeyaml-1.26.jar (pkg:maven/org.yaml/snakeyaml@1.26, cpe:2.3:a:snakeyaml_project:snakeyaml:1.26:*:*:*:*:*:*:*) : CVE-2022-1471, CVE-2022-25857, CVE-2022-38749, CVE-2022-38750, CVE-2022-38751, CVE-2022-38752, CVE-2022-41854
+spring-boot-2.3.4.RELEASE.jar (pkg:maven/org.springframework.boot/spring-boot@2.3.4.RELEASE, cpe:2.3:a:vmware:spring_boot:2.3.4:release:*:*:*:*:*:*, cpe:2.3:a:vmware:spring_framework:2.3.4:release:*:*:*:*:*:*) : CVE-2014-0054, CVE-2016-1000027, CVE-2018-11039, CVE-2018-11040, CVE-2018-1257, CVE-2020-5421, CVE-2022-22950, CVE-2022-22965, CVE-2022-22968, CVE-2022-22970, CVE-2022-27772, CVE-2023-20861, CVE-2023-20873, CVE-2023-20883
+spring-boot-actuator-2.3.4.RELEASE.jar (pkg:maven/org.springframework.boot/spring-boot-actuator@2.3.4.RELEASE, cpe:2.3:a:vmware:spring_boot:2.3.4:release:*:*:*:*:*:*, cpe:2.3:a:vmware:spring_framework:2.3.4:release:*:*:*:*:*:*) : CVE-2014-0054, CVE-2016-1000027, CVE-2018-11039, CVE-2018-11040, CVE-2018-1257, CVE-2020-5421, CVE-2022-22950, CVE-2022-22965, CVE-2022-22968, CVE-2022-22970, CVE-2023-20861, CVE-2023-20873, CVE-2023-20883, CVE-2023-34055
+spring-boot-starter-2.3.4.RELEASE.jar (pkg:maven/org.springframework.boot/spring-boot-starter@2.3.4.RELEASE, cpe:2.3:a:vmware:spring_boot:2.3.4:release:*:*:*:*:*:*, cpe:2.3:a:vmware:spring_framework:2.3.4:release:*:*:*:*:*:*) : CVE-2014-0054, CVE-2016-1000027, CVE-2018-11039, CVE-2018-11040, CVE-2018-1257, CVE-2020-5421, CVE-2022-22950, CVE-2022-22965, CVE-2022-22968, CVE-2022-22970, CVE-2023-20861, CVE-2023-20873, CVE-2023-20883
+spring-core-5.2.9.RELEASE.jar (pkg:maven/org.springframework/spring-core@5.2.9.RELEASE, cpe:2.3:a:pivotal_software:spring_framework:5.2.9:release:*:*:*:*:*:*, cpe:2.3:a:springsource:spring_framework:5.2.9:release:*:*:*:*:*:*, cpe:2.3:a:vmware:spring_framework:5.2.9:release:*:*:*:*:*:*) : CVE-2016-1000027, CVE-2021-22060, CVE-2021-22096, CVE-2021-22118, CVE-2022-22950, CVE-2022-22965, CVE-2022-22968, CVE-2022-22970, CVE-2022-22971, CVE-2023-20861, CVE-2023-20863
+spring-web-5.2.9.RELEASE.jar (pkg:maven/org.springframework/spring-web@5.2.9.RELEASE, cpe:2.3:a:pivotal_software:spring_framework:5.2.9:release:*:*:*:*:*:*, cpe:2.3:a:springsource:spring_framework:5.2.9:release:*:*:*:*:*:*, cpe:2.3:a:vmware:spring_framework:5.2.9:release:*:*:*:*:*:*, cpe:2.3:a:web_project:web:5.2.9:release:*:*:*:*:*:*) : CVE-2016-1000027, CVE-2021-22060, CVE-2021-22096, CVE-2021-22118, CVE-2022-22950, CVE-2022-22965, CVE-2022-22968, CVE-2022-22970, CVE-2022-22971, CVE-2023-20861, CVE-2023-20863, CVE-2024-22243, CVE-2024-22262
+spring-webmvc-5.2.9.RELEASE.jar (pkg:maven/org.springframework/spring-webmvc@5.2.9.RELEASE, cpe:2.3:a:pivotal_software:spring_framework:5.2.9:release:*:*:*:*:*:*, cpe:2.3:a:springsource:spring_framework:5.2.9:release:*:*:*:*:*:*, cpe:2.3:a:vmware:spring_framework:5.2.9:release:*:*:*:*:*:*, cpe:2.3:a:web_project:web:5.2.9:release:*:*:*:*:*:*) : CVE-2016-1000027, CVE-2021-22060, CVE-2021-22096, CVE-2021-22118, CVE-2022-22950, CVE-2022-22965, CVE-2022-22968, CVE-2022-22970, CVE-2022-22971, CVE-2023-20861, CVE-2023-20863
+tomcat-embed-core-9.0.38.jar (pkg:maven/org.apache.tomcat.embed/tomcat-embed-core@9.0.38, cpe:2.3:a:apache:tomcat:9.0.38:*:*:*:*:*:*:*, cpe:2.3:a:apache_tomcat:apache_tomcat:9.0.38:*:*:*:*:*:*:*) : CVE-2020-17527, CVE-2020-9484, CVE-2021-24122, CVE-2021-25122, CVE-2021-25329, CVE-2021-30640, CVE-2021-33037, CVE-2021-41079, CVE-2021-43980, CVE-2022-23181, CVE-2022-29885, CVE-2022-34305, CVE-2022-42252, CVE-2023-28708, CVE-2023-41080, CVE-2023-42795, CVE-2023-44487, CVE-2023-45648, CVE-2023-46589, CVE-2024-21733
+
+
+See the dependency-check report for more details.
+
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  46.320 s
+[INFO] Finished at: 2024-07-21T03:33:39Z
+[INFO] ------------------------------------------------------------------------
+[INFO] [jenkins-event-spy] Generated /var/jenkins_home/workspace/demoCICD@tmp/withMavend120c0f3/maven-spy-20240721-033253-1213379239667147434028.log
+[Pipeline] }
+[withMaven] artifactsPublisher - Archive artifact pom.xml under nl/amis/smeetsm/spring-boot-demo/0.0.1-SNAPSHOT/spring-boot-demo-0.0.1-SNAPSHOT.pom
+[withMaven] Jenkins FindBugs Plugin not found, don't display org.codehaus.mojo:findbugs-maven-plugin:findbugs results in pipeline screen.
+[withMaven] jgivenPublisher - Jenkins JGiven Plugin not found, do not archive jgiven reports.
+[withMaven] Jenkins Task Scanner Plugin not found, don't display results of source code scanning for 'TODO' and 'FIXME' in pipeline screen.
+[withMaven] Publishers: Generated Artifacts Publisher: 13 ms, Findbugs Publisher: 3 ms, JGiven Publisher: 1 ms, Open Task Scanner Publisher: 1 ms
+[Pipeline] // withMaven
+[Pipeline] dependencyCheckPublisher
+Collecting Dependency-Check artifact
+Parsing file /var/jenkins_home/workspace/demoCICD/target/dependency-check-report.xml
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (PMD SpotBugs)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] withMaven
+[withMaven] WARNING: You are running an old version of Maven (3.6.3), you should update to at least 3.8.x
+[Pipeline] {
+[Pipeline] sh
++ mvn pmd:pmd pmd:cpd spotbugs:spotbugs
+Picked up JAVA_TOOL_OPTIONS: -Dmaven.ext.class.path="/var/jenkins_home/workspace/demoCICD@tmp/withMaven914a3d8d/pipeline-maven-spy.jar" -Dorg.jenkinsci.plugins.pipeline.maven.reportsFolder="/var/jenkins_home/workspace/demoCICD@tmp/withMaven914a3d8d" 
+[INFO] [jenkins-event-spy] Generate /var/jenkins_home/workspace/demoCICD@tmp/withMaven914a3d8d/maven-spy-20240721-033345-69015097469394872772157.log.tmp ...
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< nl.amis.smeetsm:spring-boot-demo >------------------
+[INFO] Building spring-boot-demo 0.0.1-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-pmd-plugin:3.14.0:pmd (default-cli) @ spring-boot-demo ---
+[INFO] 
+[INFO] --- maven-pmd-plugin:3.14.0:cpd (default-cli) @ spring-boot-demo ---
+[INFO] 
+[INFO] --- spotbugs-maven-plugin:4.2.0:spotbugs (default-cli) @ spring-boot-demo ---
+[INFO] Fork Value is true
+     [java] Picked up JAVA_TOOL_OPTIONS: -Dmaven.ext.class.path="/var/jenkins_home/workspace/demoCICD@tmp/withMaven914a3d8d/pipeline-maven-spy.jar" -Dorg.jenkinsci.plugins.pipeline.maven.reportsFolder="/var/jenkins_home/workspace/demoCICD@tmp/withMaven914a3d8d" 
+     [java] The following classes needed for analysis were missing:
+     [java]   makeConcatWithConstants
+[INFO] Done SpotBugs Analysis....
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  23.572 s
+[INFO] Finished at: 2024-07-21T03:34:09Z
+[INFO] ------------------------------------------------------------------------
+[INFO] [jenkins-event-spy] Generated /var/jenkins_home/workspace/demoCICD@tmp/withMaven914a3d8d/maven-spy-20240721-033345-69015097469394872772157.log
+[Pipeline] }
+[withMaven] artifactsPublisher - Archive artifact pom.xml under nl/amis/smeetsm/spring-boot-demo/0.0.1-SNAPSHOT/spring-boot-demo-0.0.1-SNAPSHOT.pom
+[withMaven] Jenkins FindBugs Plugin not found, don't display org.codehaus.mojo:findbugs-maven-plugin:findbugs results in pipeline screen.
+[withMaven] jgivenPublisher - Jenkins JGiven Plugin not found, do not archive jgiven reports.
+[withMaven] Jenkins FindBugs Plugin not found, don't display com.github.spotbugs:spotbugs-maven-plugin:spotbugs results in pipeline screen.
+[withMaven] Jenkins Task Scanner Plugin not found, don't display results of source code scanning for 'TODO' and 'FIXME' in pipeline screen.
+[withMaven] Publishers: Pipeline Graph Publisher: 1 ms, Generated Artifacts Publisher: 9 ms, Dependencies Fingerprint Publisher: 3 ms, Findbugs Publisher: 1 ms, JGiven Publisher: 1 ms, SpotBugs Publisher: 1 ms, Open Task Scanner Publisher: 1 ms
+[Pipeline] // withMaven
+[Pipeline] recordIssues
+[SpotBugs] Using default pattern '**/spotbugsXml.xml' since user defined pattern is not set
+[SpotBugs] Searching for all files in '/var/jenkins_home/workspace/demoCICD' that match the pattern '**/spotbugsXml.xml'
+[SpotBugs] Traversing of symbolic links: enabled
+[SpotBugs] -> found 1 file
+[SpotBugs] Successfully parsed file /var/jenkins_home/workspace/demoCICD/target/spotbugsXml.xml
+[SpotBugs] -> found 4 issues (skipped 0 duplicates)
+[SpotBugs] Successfully processed file 'target/spotbugsXml.xml'
+[SpotBugs] Post processing issues on 'Master' with source code encoding 'UTF-8'
+[SpotBugs] Creating SCM blamer to obtain author and commit information for affected files
+[SpotBugs] -> No blamer installed yet. You need to install the 'git-forensics' plugin to enable blaming for Git.
+[SpotBugs] Resolving file names for all issues in workspace '/var/jenkins_home/workspace/demoCICD'
+[SpotBugs] -> resolved paths in source directory (1 found, 0 not found)
+[SpotBugs] Resolving module names from module definitions (build.xml, pom.xml, or Manifest.mf files)
+[SpotBugs] -> all issues already have a valid module name
+[SpotBugs] Resolving package names (or namespaces) by parsing the affected files
+[SpotBugs] -> all affected files already have a valid package name
+[SpotBugs] No filter has been set, publishing all 4 issues
+[SpotBugs] Creating fingerprints for all affected code blocks to track issues over different builds
+[SpotBugs] -> created fingerprints for 0 issues (skipped 4 issues)
+[SpotBugs] Copying affected files to Jenkins' build folder '/var/jenkins_home/jobs/demoCICD/builds/21/files-with-issues'
+[SpotBugs] -> 1 copied, 0 not in workspace, 0 not-found, 0 with I/O error
+[SpotBugs] Skipping cleaning of source code files in old builds
+[SpotBugs] Repository miner is not configured, skipping repository mining
+[SpotBugs] Searching for all files in '/var/jenkins_home/workspace/demoCICD' that match the pattern '**/spotbugsXml.xml'
+[SpotBugs] Traversing of symbolic links: enabled
+[SpotBugs] -> found 1 file
+[SpotBugs] Successfully parsed file /var/jenkins_home/workspace/demoCICD/target/spotbugsXml.xml
+[SpotBugs] -> found 4 issues (skipped 0 duplicates)
+[SpotBugs] Successfully processed file 'target/spotbugsXml.xml'
+[SpotBugs] Post processing issues on 'Master' with source code encoding 'UTF-8'
+[SpotBugs] Creating SCM blamer to obtain author and commit information for affected files
+[SpotBugs] -> No blamer installed yet. You need to install the 'git-forensics' plugin to enable blaming for Git.
+[SpotBugs] Resolving file names for all issues in workspace '/var/jenkins_home/workspace/demoCICD'
+[SpotBugs] -> resolved paths in source directory (1 found, 0 not found)
+[SpotBugs] Resolving module names from module definitions (build.xml, pom.xml, or Manifest.mf files)
+[SpotBugs] -> all issues already have a valid module name
+[SpotBugs] Resolving package names (or namespaces) by parsing the affected files
+[SpotBugs] -> all affected files already have a valid package name
+[SpotBugs] No filter has been set, publishing all 4 issues
+[SpotBugs] Creating fingerprints for all affected code blocks to track issues over different builds
+[SpotBugs] -> created fingerprints for 0 issues (skipped 4 issues)
+[SpotBugs] Copying affected files to Jenkins' build folder '/var/jenkins_home/jobs/demoCICD/builds/21/files-with-issues'
+[SpotBugs] -> 1 copied, 0 not in workspace, 0 not-found, 0 with I/O error
+[SpotBugs] Skipping cleaning of source code files in old builds
+[SpotBugs] Repository miner is not configured, skipping repository mining
+[SpotBugs] Reference build recorder is not configured
+[SpotBugs] No valid reference build found
+[SpotBugs] All reported issues will be considered outstanding
+[SpotBugs] No quality gates have been set - skipping
+[SpotBugs] Health report is disabled - skipping
+[SpotBugs] Created analysis result for 4 issues (found 0 new issues, fixed 0 issues)
+[SpotBugs] Attaching ResultAction with ID 'spotbugs' to build 'demoCICD #21'.
+[Checks API] No suitable checks publisher found.
+[Pipeline] recordIssues
+[CPD] Searching for all files in '/var/jenkins_home/workspace/demoCICD' that match the pattern '**/target/cpd.xml'
+[CPD] Traversing of symbolic links: enabled
+[CPD] -> found 1 file
+[CPD] Successfully parsed file /var/jenkins_home/workspace/demoCICD/target/cpd.xml
+[CPD] -> found 0 issues (skipped 0 duplicates)
+[CPD] Successfully processed file 'target/cpd.xml'
+[CPD] Skipping post processing
+[CPD] No filter has been set, publishing all 0 issues
+[CPD] Repository miner is not configured, skipping repository mining
+[CPD] Searching for all files in '/var/jenkins_home/workspace/demoCICD' that match the pattern '**/target/cpd.xml'
+[CPD] Traversing of symbolic links: enabled
+[CPD] -> found 1 file
+[CPD] Successfully parsed file /var/jenkins_home/workspace/demoCICD/target/cpd.xml
+[CPD] -> found 0 issues (skipped 0 duplicates)
+[CPD] Successfully processed file 'target/cpd.xml'
+[CPD] Skipping post processing
+[CPD] No filter has been set, publishing all 0 issues
+[CPD] Repository miner is not configured, skipping repository mining
+[CPD] Reference build recorder is not configured
+[CPD] No valid reference build found
+[CPD] All reported issues will be considered outstanding
+[CPD] No quality gates have been set - skipping
+[CPD] Health report is disabled - skipping
+[CPD] Created analysis result for 0 issues (found 0 new issues, fixed 0 issues)
+[CPD] Attaching ResultAction with ID 'cpd' to build 'demoCICD #21'.
+[Checks API] No suitable checks publisher found.
+[Pipeline] recordIssues
+[PMD] Searching for all files in '/var/jenkins_home/workspace/demoCICD' that match the pattern '**/target/pmd.xml'
+[PMD] Traversing of symbolic links: enabled
+[PMD] -> found 1 file
+[PMD] Successfully parsed file /var/jenkins_home/workspace/demoCICD/target/pmd.xml
+[PMD] -> found 2 issues (skipped 0 duplicates)
+[PMD] Successfully processed file 'target/pmd.xml'
+[PMD] Post processing issues on 'Master' with source code encoding 'UTF-8'
+[PMD] Creating SCM blamer to obtain author and commit information for affected files
+[PMD] -> No blamer installed yet. You need to install the 'git-forensics' plugin to enable blaming for Git.
+[PMD] Resolving file names for all issues in workspace '/var/jenkins_home/workspace/demoCICD'
+[PMD] -> resolved paths in source directory (1 found, 0 not found)
+[PMD] Resolving module names from module definitions (build.xml, pom.xml, or Manifest.mf files)
+[PMD] -> resolved module names for 2 issues
+[PMD] Resolving package names (or namespaces) by parsing the affected files
+[PMD] -> all affected files already have a valid package name
+[PMD] No filter has been set, publishing all 2 issues
+[PMD] Creating fingerprints for all affected code blocks to track issues over different builds
+[PMD] -> created fingerprints for 2 issues (skipped 0 issues)
+[PMD] Copying affected files to Jenkins' build folder '/var/jenkins_home/jobs/demoCICD/builds/21/files-with-issues'
+[PMD] -> 0 copied, 0 not in workspace, 0 not-found, 0 with I/O error
+[PMD] Skipping cleaning of source code files in old builds
+[PMD] Repository miner is not configured, skipping repository mining
+[PMD] Searching for all files in '/var/jenkins_home/workspace/demoCICD' that match the pattern '**/target/pmd.xml'
+[PMD] Traversing of symbolic links: enabled
+[PMD] -> found 1 file
+[PMD] Successfully parsed file /var/jenkins_home/workspace/demoCICD/target/pmd.xml
+[PMD] -> found 2 issues (skipped 0 duplicates)
+[PMD] Successfully processed file 'target/pmd.xml'
+[PMD] Post processing issues on 'Master' with source code encoding 'UTF-8'
+[PMD] Creating SCM blamer to obtain author and commit information for affected files
+[PMD] -> No blamer installed yet. You need to install the 'git-forensics' plugin to enable blaming for Git.
+[PMD] Resolving file names for all issues in workspace '/var/jenkins_home/workspace/demoCICD'
+[PMD] -> resolved paths in source directory (1 found, 0 not found)
+[PMD] Resolving module names from module definitions (build.xml, pom.xml, or Manifest.mf files)
+[PMD] -> resolved module names for 2 issues
+[PMD] Resolving package names (or namespaces) by parsing the affected files
+[PMD] -> all affected files already have a valid package name
+[PMD] No filter has been set, publishing all 2 issues
+[PMD] Creating fingerprints for all affected code blocks to track issues over different builds
+[PMD] -> created fingerprints for 2 issues (skipped 0 issues)
+[PMD] Copying affected files to Jenkins' build folder '/var/jenkins_home/jobs/demoCICD/builds/21/files-with-issues'
+[PMD] -> 0 copied, 0 not in workspace, 0 not-found, 0 with I/O error
+[PMD] Skipping cleaning of source code files in old builds
+[PMD] Repository miner is not configured, skipping repository mining
+[PMD] Reference build recorder is not configured
+[PMD] No valid reference build found
+[PMD] All reported issues will be considered outstanding
+[PMD] No quality gates have been set - skipping
+[PMD] Health report is disabled - skipping
+[PMD] Created analysis result for 2 issues (found 0 new issues, fixed 0 issues)
+[PMD] Attaching ResultAction with ID 'pmd' to build 'demoCICD #21'.
+[Checks API] No suitable checks publisher found.
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (ZAP)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] withMaven
+[withMaven] WARNING: You are running an old version of Maven (3.6.3), you should update to at least 3.8.x
+[Pipeline] {
+[Pipeline] sh
++ mvn zap:analyze
+Picked up JAVA_TOOL_OPTIONS: -Dmaven.ext.class.path="/var/jenkins_home/workspace/demoCICD@tmp/withMavenff2924ab/pipeline-maven-spy.jar" -Dorg.jenkinsci.plugins.pipeline.maven.reportsFolder="/var/jenkins_home/workspace/demoCICD@tmp/withMavenff2924ab" 
+[INFO] [jenkins-event-spy] Generate /var/jenkins_home/workspace/demoCICD@tmp/withMavenff2924ab/maven-spy-20240721-033414-3039075236688615656421.log.tmp ...
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< nl.amis.smeetsm:spring-boot-demo >------------------
+[INFO] Building spring-boot-demo 0.0.1-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- zap-maven-plugin:1.2.1-0:analyze (default-cli) @ spring-boot-demo ---
+[INFO] Starting ZAP analysis at target: http://myapp:8080/rest
+[INFO] --- Starting analysis ---
+[INFO] Spider : http://myapp:8080/rest
+[INFO] Spider progress : 100%
+[INFO] Spider complete
+[INFO] Active Scan : http://myapp:8080/rest
+[INFO] Active Scan progress : 38%
+[INFO] Active Scan progress : 38%
+[INFO] Active Scan progress : 100%
+[INFO] Active Scan complete
+[INFO] Retrieving reports and Spider results...
+[INFO] Reports retrieved.
+[INFO] --- Finished analysis ---
+
+[INFO] Saving Reports...
+[INFO] zapReport.html saved to /var/jenkins_home/workspace/demoCICD/target/zap-reports
+[INFO] zapReport.xml saved to /var/jenkins_home/workspace/demoCICD/target/zap-reports
+[INFO] zapSpiderResults.html saved to /var/jenkins_home/workspace/demoCICD/target/zap-reports
+[INFO] zapSpiderResults.xml saved to /var/jenkins_home/workspace/demoCICD/target/zap-reports
+[INFO] ZAP analysis finished.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  20.307 s
+[INFO] Finished at: 2024-07-21T03:34:34Z
+[INFO] ------------------------------------------------------------------------
+[INFO] [jenkins-event-spy] Generated /var/jenkins_home/workspace/demoCICD@tmp/withMavenff2924ab/maven-spy-20240721-033414-3039075236688615656421.log
+[Pipeline] publishHTML
+[htmlpublisher] Archiving HTML reports...
+[htmlpublisher] Archiving at BUILD level /var/jenkins_home/workspace/demoCICD/target/zap-reports to /var/jenkins_home/jobs/demoCICD/builds/21/htmlreports/ZAP_20report
+[htmlpublisher] Copying recursive using current thread
+[Pipeline] }
+[withMaven] artifactsPublisher - Archive artifact pom.xml under nl/amis/smeetsm/spring-boot-demo/0.0.1-SNAPSHOT/spring-boot-demo-0.0.1-SNAPSHOT.pom
+[withMaven] Jenkins FindBugs Plugin not found, don't display org.codehaus.mojo:findbugs-maven-plugin:findbugs results in pipeline screen.
+[withMaven] jgivenPublisher - Jenkins JGiven Plugin not found, do not archive jgiven reports.
+[withMaven] Jenkins Task Scanner Plugin not found, don't display results of source code scanning for 'TODO' and 'FIXME' in pipeline screen.
+[withMaven] Publishers: Generated Artifacts Publisher: 5 ms, Findbugs Publisher: 2 ms, JGiven Publisher: 2 ms
+[Pipeline] // withMaven
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (SonarQube analysis)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] withSonarQubeEnv
+Injecting SonarQube environment variables using the configuration: sonarqube-server
+[Pipeline] {
+[Pipeline] withMaven
+[withMaven] WARNING: You are running an old version of Maven (3.6.3), you should update to at least 3.8.x
+[Pipeline] {
+[Pipeline] sh
++ mvn sonar:sonar -Dsonar.dependencyCheck.jsonReportPath=target/dependency-check-report.json -Dsonar.dependencyCheck.xmlReportPath=target/dependency-check-report.xml -Dsonar.dependencyCheck.htmlReportPath=target/dependency-check-report.html -Dsonar.java.pmd.reportPaths=target/pmd.xml -Dsonar.java.spotbugs.reportPaths=target/spotbugsXml.xml -Dsonar.zaproxy.reportPath=target/zap-reports/zapReport.xml -Dsonar.zaproxy.htmlReportPath=target/zap-reports/zapReport.html
+Picked up JAVA_TOOL_OPTIONS: -Dmaven.ext.class.path="/var/jenkins_home/workspace/demoCICD@tmp/withMavenf76bf4a8/pipeline-maven-spy.jar" -Dorg.jenkinsci.plugins.pipeline.maven.reportsFolder="/var/jenkins_home/workspace/demoCICD@tmp/withMavenf76bf4a8" 
+[INFO] [jenkins-event-spy] Generate /var/jenkins_home/workspace/demoCICD@tmp/withMavenf76bf4a8/maven-spy-20240721-033439-65312071125379784425184.log.tmp ...
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< nl.amis.smeetsm:spring-boot-demo >------------------
+[INFO] Building spring-boot-demo 0.0.1-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- sonar-maven-plugin:3.8.0.2131:sonar (default-cli) @ spring-boot-demo ---
+[INFO] User cache: /var/jenkins_home/.sonar/cache
+[INFO] SonarQube version: 9.9.6.92038
+[INFO] Default locale: "en", source code encoding: "UTF-8"
+[INFO] Load global settings
+[INFO] Load global settings (done) | time=351ms
+[INFO] Server id: 147B411E-AZDSAYhb3DMEHiBA8OWl
+[INFO] User cache: /var/jenkins_home/.sonar/cache
+[INFO] Load/download plugins
+[INFO] Load plugins index
+[INFO] Load plugins index (done) | time=244ms
+[INFO] Load/download plugins (done) | time=4054ms
+[INFO] Process project properties
+[INFO] Process project properties (done) | time=19ms
+[INFO] Execute project builders
+[INFO] Execute project builders (done) | time=7ms
+[INFO] Project key: nl.amis.smeetsm:spring-boot-demo
+[INFO] Base dir: /var/jenkins_home/workspace/demoCICD
+[INFO] Working dir: /var/jenkins_home/workspace/demoCICD/target/sonar
+[INFO] Load project settings for component key: 'nl.amis.smeetsm:spring-boot-demo'
+[INFO] Auto-configuring with CI 'Jenkins'
+[INFO] Load quality profiles
+[INFO] Load quality profiles (done) | time=483ms
+[INFO] Load active rules
+[INFO] Load active rules (done) | time=11244ms
+[INFO] Load analysis cache
+[INFO] Load analysis cache (404) | time=64ms
+[INFO] Load project repositories
+[INFO] Load project repositories (done) | time=21ms
+[INFO] Indexing files...
+[INFO] Project configuration:
+[INFO] 7 files indexed
+[INFO] 0 files ignored because of scm ignore settings
+[INFO] Quality profile for java: Sonar way
+[INFO] Quality profile for xml: Sonar way
+[INFO] ------------- Run sensors on module spring-boot-demo
+[INFO] Load metrics repository
+[INFO] Load metrics repository (done) | time=103ms
+[INFO] Sensor JavaSensor [java]
+[INFO] Configured Java source version (sonar.java.source): 11
+[INFO] JavaClasspath initialization
+[INFO] JavaClasspath initialization (done) | time=22ms
+[INFO] JavaTestClasspath initialization
+[INFO] JavaTestClasspath initialization (done) | time=11ms
+[INFO] Server-side caching is enabled. The Java analyzer will not try to leverage data from a previous analysis.
+[INFO] Using ECJ batch to parse 4 Main java source files with batch size 51 KB.
+[INFO] Starting batch processing.
+[INFO] The Java analyzer cannot skip unchanged files in this context. A full analysis is performed for all files.
+[INFO] 100% analyzed
+[INFO] Batch processing: Done.
+[INFO] Did not optimize analysis for any files, performed a full analysis for all 4 files.
+[INFO] Using ECJ batch to parse 2 Test java source files with batch size 51 KB.
+[INFO] Starting batch processing.
+[INFO] 100% analyzed
+[INFO] Batch processing: Done.
+[INFO] Did not optimize analysis for any files, performed a full analysis for all 2 files.
+[INFO] No "Generated" source files to scan.
+[INFO] Sensor JavaSensor [java] (done) | time=3586ms
+[INFO] Sensor JaCoCo XML Report Importer [jacoco]
+[INFO] 'sonar.coverage.jacoco.xmlReportPaths' is not defined. Using default locations: target/site/jacoco/jacoco.xml,target/site/jacoco-it/jacoco.xml,build/reports/jacoco/test/jacocoTestReport.xml
+[INFO] Importing 1 report(s). Turn your logs in debug mode in order to see the exhaustive list.
+[INFO] Sensor JaCoCo XML Report Importer [jacoco] (done) | time=115ms
+[INFO] Sensor CSS Rules [javascript]
+[INFO] No CSS, PHP, HTML or VueJS files are found in the project. CSS analysis is skipped.
+[INFO] Sensor CSS Rules [javascript] (done) | time=3ms
+[INFO] Sensor C# Project Type Information [csharp]
+[INFO] Sensor C# Project Type Information [csharp] (done) | time=5ms
+[INFO] Sensor C# Analysis Log [csharp]
+[INFO] Sensor C# Analysis Log [csharp] (done) | time=77ms
+[INFO] Sensor C# Properties [csharp]
+[INFO] Sensor C# Properties [csharp] (done) | time=0ms
+[INFO] Sensor Import of PMD issues [java]
+[INFO] Importing /var/jenkins_home/workspace/demoCICD/target/pmd.xml
+[INFO] Sensor Import of PMD issues [java] (done) | time=191ms
+[INFO] Sensor Import of SpotBugs issues [java]
+[INFO] Importing /var/jenkins_home/workspace/demoCICD/target/spotbugsXml.xml
+[INFO] Sensor Import of SpotBugs issues [java] (done) | time=25ms
+[INFO] Sensor SurefireSensor [java]
+[INFO] parsing [/var/jenkins_home/workspace/demoCICD/target/surefire-reports]
+[INFO] Sensor SurefireSensor [java] (done) | time=61ms
+[INFO] Sensor HTML [web]
+[INFO] Sensor HTML [web] (done) | time=7ms
+[INFO] Sensor XML Sensor [xml]
+[INFO] 1 source file to be analyzed
+[INFO] 1/1 source file has been analyzed
+[INFO] Sensor XML Sensor [xml] (done) | time=891ms
+[INFO] Sensor TextAndSecretsSensor [text]
+[INFO] 7 source files to be analyzed
+[INFO] 7/7 source files have been analyzed
+[INFO] Sensor TextAndSecretsSensor [text] (done) | time=68ms
+[INFO] Sensor VB.NET Project Type Information [vbnet]
+[INFO] Sensor VB.NET Project Type Information [vbnet] (done) | time=2ms
+[INFO] Sensor VB.NET Analysis Log [vbnet]
+[INFO] Sensor VB.NET Analysis Log [vbnet] (done) | time=32ms
+[INFO] Sensor VB.NET Properties [vbnet]
+[INFO] Sensor VB.NET Properties [vbnet] (done) | time=2ms
+[INFO] Sensor IaC Docker Sensor [iac]
+[INFO] 0 source files to be analyzed
+[INFO] 0/0 source files have been analyzed
+[INFO] Sensor IaC Docker Sensor [iac] (done) | time=177ms
+[INFO] ------------- Run sensors on project
+[INFO] Sensor Analysis Warnings import [csharp]
+[INFO] Sensor Analysis Warnings import [csharp] (done) | time=4ms
+[INFO] Sensor Zero Coverage Sensor
+[INFO] Sensor Zero Coverage Sensor (done) | time=4ms
+[INFO] Sensor Java CPD Block Indexer
+[INFO] Sensor Java CPD Block Indexer (done) | time=51ms
+[INFO] SCM Publisher SCM provider for this project is: git
+[INFO] SCM Publisher 7 source files to be analyzed
+[INFO] SCM Publisher 7/7 source files have been analyzed (done) | time=610ms
+[INFO] CPD Executor 3 files had no CPD blocks
+[INFO] CPD Executor Calculating CPD for 1 file
+[INFO] CPD Executor CPD calculation finished (done) | time=57ms
+[INFO] Analysis report generated in 361ms, dir size=160.8 kB
+[INFO] Analysis report compressed in 54ms, zip size=32.8 kB
+[INFO] Analysis report uploaded in 2239ms
+[INFO] ANALYSIS SUCCESSFUL, you can find the results at: http://172.23.0.5:9000/dashboard?id=nl.amis.smeetsm%3Aspring-boot-demo
+[INFO] Note that you will be able to access the updated dashboard once the server has processed the submitted analysis report
+[INFO] More about the report processing at http://172.23.0.5:9000/api/ce/task?id=AZDTW7B39uSzgSqu4xmc
+[INFO] Analysis total time: 27.886 s
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  39.906 s
+[INFO] Finished at: 2024-07-21T03:35:20Z
+[INFO] ------------------------------------------------------------------------
+[INFO] [jenkins-event-spy] Generated /var/jenkins_home/workspace/demoCICD@tmp/withMavenf76bf4a8/maven-spy-20240721-033439-65312071125379784425184.log
+[Pipeline] }
+[withMaven] artifactsPublisher - Archive artifact pom.xml under nl/amis/smeetsm/spring-boot-demo/0.0.1-SNAPSHOT/spring-boot-demo-0.0.1-SNAPSHOT.pom
+[withMaven] Jenkins FindBugs Plugin not found, don't display org.codehaus.mojo:findbugs-maven-plugin:findbugs results in pipeline screen.
+[withMaven] jgivenPublisher - Jenkins JGiven Plugin not found, do not archive jgiven reports.
+[withMaven] Jenkins Task Scanner Plugin not found, don't display results of source code scanning for 'TODO' and 'FIXME' in pipeline screen.
+[withMaven] Publishers: Pipeline Graph Publisher: 1 ms, Generated Artifacts Publisher: 11 ms, Findbugs Publisher: 1 ms, JGiven Publisher: 1 ms, Open Task Scanner Publisher: 1 ms
+[Pipeline] // withMaven
+[Pipeline] }
+[Pipeline] // withSonarQubeEnv
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS

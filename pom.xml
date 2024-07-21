@@ -84,6 +84,7 @@
                 </executions>
                 <configuration>
                     <failBuildOnCVSS>10</failBuildOnCVSS>
+                    <connectionTimeout>100000</connectionTimeout>
                     <!-- Generate all report formats -->
                     <format>ALL</format>
                     <!-- Don't use Nexus Analyzer -->
